@@ -57,9 +57,25 @@
   --font-label: var(--font-manrope);
 }
 
-:root {
-  --background: #faf8ff;
-  --foreground: #131b2e;
+@layer base {
+  :root {
+    --background: #faf8ff;
+    --foreground: #131b2e;
+  }
+
+  .dark {
+    --color-surface: #0f172a;
+    --color-on-surface: #f1f5f9;
+    --color-surface-container-low: #1e293b;
+    --color-background: #0f172a;
+    --color-on-background: #f1f5f9;
+    --color-on-surface-variant: #94a3b8;
+    --color-surface-container-high: #1e293b;
+    --color-surface-container-lowest: #1e293b;
+    --color-surface-variant: #334155;
+    --color-outline: #475569;
+    --color-outline-variant: #334155;
+  }
 }
 
 @layer base {

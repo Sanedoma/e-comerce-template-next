@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   return (
@@ -46,6 +47,7 @@ const Navbar = () => {
           />
         </div>
         <div className="flex gap-4 items-center">
+          <ThemeToggle />
           <a href="/cart" className="flex items-center">
             <span className="material-symbols-outlined text-slate-600 dark:text-slate-400 cursor-pointer hover:text-primary transition-colors">
               shopping_bag
