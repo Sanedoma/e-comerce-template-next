@@ -5,8 +5,8 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center px-8 md:px-12 py-4 max-w-full font-headline font-bold tracking-tight">
-      <div className="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-50 cursor-pointer active:scale-95 duration-200">
+    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none flex justify-between items-center px-8 md:px-12 py-4 max-w-full font-headline font-bold tracking-tight">
+      <div className="text-2xl font-black tracking-tighter text-on-surface cursor-pointer active:scale-95 duration-200">
         The Atelier
       </div>
       <div className="hidden md:flex items-center gap-8">
@@ -49,12 +49,12 @@ const Navbar = () => {
         <div className="flex gap-4 items-center">
           <ThemeToggle />
           <a href="/cart" className="flex items-center">
-            <span className="material-symbols-outlined text-slate-600 dark:text-slate-400 cursor-pointer hover:text-primary transition-colors">
+            <span className="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">
               shopping_bag
             </span>
           </a>
           <a href="/login" className="flex items-center">
-            <span className="material-symbols-outlined text-slate-600 dark:text-slate-400 cursor-pointer hover:text-primary transition-colors">
+            <span className="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">
               person
             </span>
           </a>

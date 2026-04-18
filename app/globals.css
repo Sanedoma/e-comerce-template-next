@@ -1,53 +1,60 @@
 @import "tailwindcss";
 
+/* 1. Define base tokens as RGB parts for opacity support */
+:root {
+  --tp-surface: 250, 248, 255; /* #faf8ff */
+  --tp-on-surface: 19, 27, 46;  /* #131b2e */
+  --tp-surface-container-low: 242, 243, 255; /* #f2f3ff */
+  --tp-surface-container: 234, 237, 255;    /* #eaedff */
+  --tp-surface-container-high: 226, 231, 255;/* #e2e7ff */
+  --tp-surface-container-highest: 218, 226, 253; /* #dae2fd */
+  --tp-surface-container-lowest: 255, 255, 255; /* #ffffff */
+  --tp-surface-variant: 218, 226, 253;      /* #dae2fd */
+  --tp-on-surface-variant: 67, 70, 85;      /* #434655 */
+  --tp-outline: 115, 118, 134;      /* #737686 */
+  --tp-outline-variant: 195, 198, 215;      /* #c3c6d7 */
+  color-scheme: light;
+}
+
+.dark {
+  --tp-surface: 15, 23, 42;  /* #0f172a */
+  --tp-on-surface: 241, 245, 249; /* #f1f5f9 */
+  --tp-surface-container-low: 30, 41, 59;   /* #1e293b */
+  --tp-surface-container: 30, 41, 59;       /* #1e293b */
+  --tp-surface-container-high: 51, 65, 85;   /* #334155 */
+  --tp-surface-container-highest: 51, 65, 85;/* #334155 */
+  --tp-surface-container-lowest: 2, 6, 23;   /* #020617 */
+  --tp-surface-variant: 30, 41, 59;         /* #1e293b */
+  --tp-on-surface-variant: 148, 163, 184;   /* #94a3b8 */
+  --tp-outline: 71, 85, 107;        /* #475569 */
+  --tp-outline-variant: 51, 65, 85;        /* #334155 */
+  color-scheme: dark;
+}
+
+/* 2. Map Tailwind design tokens to these CSS variables */
 @theme {
-  --color-on-tertiary: #ffffff;
-  --color-on-secondary-container: #57657a;
-  --color-on-error-container: #93000a;
-  --color-background: #faf8ff;
-  --color-primary-fixed-dim: #b4c5ff;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-bright: #faf8ff;
-  --color-inverse-primary: #b4c5ff;
-  --color-on-primary: #ffffff;
-  --color-surface-container-high: #e2e7ff;
-  --color-inverse-on-surface: #eef0ff;
-  --color-error-container: #ffdad6;
-  --color-tertiary-container: #996100;
-  --color-primary-container: #2563eb;
-  --color-surface-container: #eaedff;
-  --color-on-primary-fixed: #00174b;
-  --color-secondary-fixed: #d5e3fc;
-  --color-on-error: #ffffff;
-  --color-tertiary-fixed: #ffddb8;
-  --color-on-secondary-fixed-variant: #3a485b;
-  --color-outline-variant: #c3c6d7;
-  --color-surface-tint: #0053db;
-  --color-on-surface: #131b2e;
-  --color-secondary-container: #d5e3fc;
-  --color-outline: #737686;
-  --color-on-background: #131b2e;
-  --color-tertiary: #784b00;
-  --color-error: #ba1a1a;
-  --color-on-tertiary-fixed-variant: #653e00;
-  --color-on-primary-fixed-variant: #003ea8;
-  --color-primary-fixed: #dbe1ff;
-  --color-on-secondary-fixed: #0d1c2e;
-  --color-surface-container-highest: #dae2fd;
-  --color-on-secondary: #ffffff;
-  --color-on-tertiary-fixed: #2a1700;
-  --color-on-tertiary-container: #ffeedd;
-  --color-on-primary-container: #eeefff;
-  --color-surface-container-low: #f2f3ff;
-  --color-tertiary-fixed-dim: #ffb95f;
-  --color-surface-dim: #d2d9f4;
+  --color-surface: rgb(var(--tp-surface));
+  --color-on-surface: rgb(var(--tp-on-surface));
+  --color-surface-container-low: rgb(var(--tp-surface-container-low));
+  --color-surface-container: rgb(var(--tp-surface-container));
+  --color-surface-container-high: rgb(var(--tp-surface-container-high));
+  --color-surface-container-highest: rgb(var(--tp-surface-container-highest));
+  --color-surface-container-lowest: rgb(var(--tp-surface-container-lowest));
+  --color-surface-variant: rgb(var(--tp-surface-variant));
+  --color-on-surface-variant: rgb(var(--tp-on-surface-variant));
+  --color-outline: rgb(var(--tp-outline));
+  --color-outline-variant: rgb(var(--tp-outline-variant));
+
+  /* Constants */
   --color-primary: #004ac6;
-  --color-surface-variant: #dae2fd;
+  --color-primary-container: #2563eb;
+  --color-on-primary: #ffffff;
   --color-secondary: #515f74;
-  --color-secondary-fixed-dim: #b9c7df;
-  --color-on-surface-variant: #434655;
-  --color-inverse-surface: #283044;
-  --color-surface: #faf8ff;
+  --color-on-secondary: #ffffff;
+  --color-tertiary: #784b00;
+  --color-on-tertiary: #ffffff;
+  --color-background: rgb(var(--tp-surface));
+  --color-on-background: rgb(var(--tp-on-surface));
 
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
@@ -58,37 +65,17 @@
 }
 
 @layer base {
-  :root {
-    --background: #faf8ff;
-    --foreground: #131b2e;
-  }
-
-  .dark {
-    --color-surface: #0f172a;
-    --color-on-surface: #f1f5f9;
-    --color-surface-container-low: #1e293b;
-    --color-background: #0f172a;
-    --color-on-background: #f1f5f9;
-    --color-on-surface-variant: #94a3b8;
-    --color-surface-container-high: #1e293b;
-    --color-surface-container-lowest: #1e293b;
-    --color-surface-variant: #334155;
-    --color-outline: #475569;
-    --color-outline-variant: #334155;
-  }
-}
-
-@layer base {
   body {
     background-color: var(--color-surface);
     color: var(--color-on-surface);
     font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-family: inherit; /* Will be set by Layout */
+  font-family: inherit;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -100,7 +87,7 @@
 }
 
 .glass-effect {
-  background: rgba(218, 226, 253, 0.6);
+  background: rgba(var(--tp-surface-container-highest), 0.6);
   backdrop-filter: blur(24px);
 }
 

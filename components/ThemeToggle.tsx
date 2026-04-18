@@ -4,7 +4,7 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   // Avoid hydration mismatch
@@ -15,25 +15,27 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button className="p-2 rounded-full w-10 h-10 flex items-center justify-center">
-        <span className="material-symbols-outlined text-slate-600 dark:text-slate-400">
+        <span className="material-symbols-outlined text-on-surface-variant">
           light_mode
         </span>
       </button>
     );
   }
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(isDark ? "light" : "dark")}
       className="p-2 rounded-full hover:bg-surface-container-low transition-colors w-10 h-10 flex items-center justify-center"
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? (
+      {isDark ? (
         <span className="material-symbols-outlined text-blue-400">
           light_mode
         </span>
       ) : (
-        <span className="material-symbols-outlined text-slate-600">
+        <span className="material-symbols-outlined text-on-surface-variant">
           dark_mode
         </span>
       )}
